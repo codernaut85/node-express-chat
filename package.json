@@ -1,0 +1,29 @@
+{
+	"name": "express-chat",
+	"version": "1.0.0",
+	"description": "A simple NodeJS and Express chat app",
+	"main": "index.js",
+	"scripts": {
+		"test": "",
+		"clean": "rimraf dist/*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://codernaut85@github.com/codernaut85/node-express-chat.git"
+	},
+	"keywords": [
+		"node",
+		"express",
+		"chat"
+	],
+	"author": "Grant Sykes",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/codernaut85/node-express-chat/issues"
+	},
+	"homepage": "https://github.com/codernaut85/node-express-chat#readme",
+	"dependencies": {
+		"express": "^4.15.2",
+		"socket.io": "^2.0.4"
+	}
+}
