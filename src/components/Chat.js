@@ -18,16 +18,13 @@ class Chat extends React.Component {
 
 	componentDidMount() {
 		socket.on("chat message", (message) => {
+			console.log("PRINTING A CHAT MESSAge");
 			console.log("message: " + message);
 			this.setState({ messages: [...this.state.messages, message] });
 		});
 	}
 
 	registerNewUser(e) {
-		console.log("Registering a new user");
-		console.log("this.state");
-		console.log(this.state);
-
 		let value;
 
 		if (e.key === "Enter") {
@@ -35,7 +32,7 @@ class Chat extends React.Component {
 			if (!e.target.value) {
 				return false;
 			}
-			socket.emit("chat message", value + " has just registered");
+			socket.emit("register new user", value);
 			e.target.value = null;
 		}
 	}

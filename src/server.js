@@ -15,25 +15,22 @@ app.get("/", (request, response) => {
 
 io.on("connection", (socket) => {
 
-	let username;
-
 	console.log("a user connected");
 	io.emit("chat message", "A user has connected");
 
 	socket.on("disconnect", () => {
-		console.log("a user disconnected");
-		io.emit("chat message", username ? (username + " has disconnected") : ("an anonymous user has disconnected"));
+		io.emit("chat message", (socket.username ? socket.username : "Anonymous") + " has disconnected");
 	});
 
 	socket.on("chat message", (message) => {
-		console.log("message: " + message);
-		io.emit("chat message", username ? (username + ": " + message) : ("Anonymous" + ": " + message));
+		console.log(message);
+		io.emit("chat message", socket.username + " : " + message );
 	});
 
-	socket.on("register new user", (value) => {
-		console.log(value + " has just connected");
-		username = value;
-		io.emit("chat message", username + " has just registered");
+	socket.on("register new user", (name) => {
+		console.log(name);
+		socket.username = name;
+		io.emit("chat message", (socket.username ? socket.username : "Anonymous") + " has just registered");
 	});
 });
 
