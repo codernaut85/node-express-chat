@@ -55,7 +55,7 @@ io.on("connection", (socket) => {
 
 		if (userAlreadyExists) {
 			socket.emit("user already exists");
-		} else if (name === "admin" || name === "Admin") {
+		} else if (name.toLowerCase() === "admin") {
 			socket.emit("cannot name self admin");
 		} else {
 			socket.username = name;
