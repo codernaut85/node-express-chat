@@ -71,11 +71,6 @@ class Chat extends React.Component {
 	}
 
 	componentDidUpdate () {
-
-		console.log("UPDATING");
-
-		console.log(this.state.activeUsers.length);
-
 		const messageListHTML = document.getElementById("messages");
 
 		if (messageListHTML) {
@@ -139,7 +134,7 @@ class Chat extends React.Component {
 		return (
 			<section className="chat-app clearfix">
 				<h1>Welcome to Node Chat</h1>
-				<p>{this.state.activeUsers.length + " active users"}</p>
+				<p>{this.state.activeUsers.length + " active user" + (this.state.activeUsers.length === 1 ? "" : "s")}</p>
 				{ this.state.userIsRegistered && this.state.username ?  
 					<p>Registered as: {this.state.username}</p>
 					:

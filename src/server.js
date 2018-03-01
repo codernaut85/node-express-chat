@@ -22,15 +22,9 @@ io.on("connection", (socket) => {
 
 	socket.on("disconnect", () => {
 
-		console.log("DELETING USER");
-
 		registeredUsers = registeredUsers.filter((user) => {
-			console.log(user);
-			console.log(socket.username);
 			return user !== socket.username;
 		});
-
-		console.log(registeredUsers);
 
 		io.emit("chat message", {
 			fromUser: "admin",
@@ -60,10 +54,8 @@ io.on("connection", (socket) => {
 		});
 
 		if (userAlreadyExists) {
-			console.log("User already exists");
 			socket.emit("user already exists");
 		} else if (name === "admin" || name === "Admin") {
-			console.log("You cannot use the username 'admin'!");
 			socket.emit("cannot name self admin");
 		} else {
 			socket.username = name;
