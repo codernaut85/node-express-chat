@@ -1,4 +1,18 @@
 
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background: #fff;
 	color: #333;
@@ -8,48 +22,155 @@ body {
 	padding: 0;
 }
 
- * { 
- 	margin: 0; 
- 	padding: 0; 
- 	box-sizing: 
- 	border-box; 
- }
+button {
+ 	cursor: pointer;
+}
 
-.controls { 
-	background: #000; 
-	padding: 3px; 
-	position: 
-	fixed; 
-	bottom: 
-	0; 
-	width: 100%; 
+p {
+	font-size: 16px;
+}
 
-	input { 
-		border: 0; 
-		padding: 10px; 
-		width: 90%; 
-		margin-right: .5%; 
+.form-group {
+
+	label {
+		display: inline-block;
+		font-size: 16px;
+		margin-bottom: 5px;
 	}
 
-	button { 
-		width: 9%; 
-		background: rgb(130, 224, 255); 
-		border: none; 
-		padding: 10px;
+	input {
+		font-size: 16px;
+		padding: 5px;
 	}
 }
 
- .messages { 
- 	list-style-type: none; 
- 	margin: 0; 
- 	padding: 0; 
 
- 	&__message { 
- 		font-size: 1rem;
- 		padding: 5px 10px; 
+.info-box {
+	background: #fff;
+	color: #333;
+	margin-bottom: 20px;
+	padding: 20px;
 
- 		&:nth-child(odd) { 
- 			background: #eee; 
- 		}
- 	}
- }
+	&__text {
+		font-size: 16px;
+	}
+
+	&--error {
+		background: #c00202;
+		color: #f1f1f1;
+	}
+}
+
+
+.chat-app {
+	height: 95vh;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 30px;
+	position: relative;
+
+
+	&__active-users {
+
+		float: right;
+		width: 25%;
+
+		&__list {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+
+			&__item {
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+
+	&__register {
+
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&__text {
+			height: 40px;
+			width: 100%;
+		}
+	}
+
+
+	&__content {
+
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&__messages { 
+			list-style-type: none; 
+			margin: 0;
+			max-height: 50vh;
+			overflow: auto; 
+			padding: 0; 
+
+		 	&__message { 
+		 		font-size: 1rem;
+		 		padding: 5px 10px; 
+
+		 		&:nth-child(odd):not(.admin) { 
+		 			background: #eee;
+		 		}
+
+		 		&.admin {
+		 			background: #444;
+		 			color: #f1f1f1;
+		 		}
+		 	}
+		}
+
+		&__controls { 
+
+			bottom: 0; 
+			width: 100%;
+
+			.send-chat {
+
+				&__text {
+					border: 1px solid #ccc;
+					border-right-width: 0;
+					box-sizing: border-box;
+					float: left;
+					height: 40px;
+					width: 90%;
+
+					@media (max-width: 600px) {
+						width: 75%;
+					}
+				}
+
+				&__button {
+					background: #eee;
+					color: #333;
+					box-sizing: border-box;
+					font-size: 16px;
+					float: right;
+					height: 40px;
+					padding: 5px;
+					width: 10%;
+
+
+					@media (max-width: 600px) {
+						width: 25%;
+					}
+				}
+			}
+		}
+	}
+}
+	
+
+	
+
+
+

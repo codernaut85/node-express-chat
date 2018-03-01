@@ -7,6 +7,7 @@
 		"clean": "rimraf dist/*",
 		"client": "rimraf dist/client.js && webpack --config webpack.clientConfig.js",
 		"server": "rimraf dist/server.js && webpack --config webpack.serverConfig.js",
+		"build": "rimraf dist/server.js && webpack --config webpack.serverConfig.js && webpack --config webpack.clientConfig.js",
 		"start": "node ./dist/server.js"
 	},
 	"repository": {
